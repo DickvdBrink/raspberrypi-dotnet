@@ -94,6 +94,8 @@ namespace i2c_test
 
         private short[] runCommand(SGPCommand cmd, byte[] parameters = null)
         {
+            bus.SetDevice(this.address);
+
             var bytesToWrite = new byte[cmd.OpCode.Length + cmd.ParameterLength];
             if (cmd.ParameterLength > 0 && parameters?.Length != cmd.ParameterLength)
             {
