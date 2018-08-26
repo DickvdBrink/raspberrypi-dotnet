@@ -8,6 +8,12 @@ namespace lib_i2c
         [DllImport("libI2CNative", EntryPoint = "NativeAdd")]
         public static extern int NativeAdd(int a, int b);
 
+        [DllImport("libI2CNative", EntryPoint = "I2CSmbusReadI2CBlockData")]
+        public static extern int I2CSmbusReadI2CBlockData(int file, byte cmd, byte length, byte[] values);
+
+        [DllImport("libI2CNative", EntryPoint = "I2CSmbusWriteI2CBlockData")]
+        public static extern int I2CSmbusWriteI2CBlockData(int file, byte cmd, byte length, byte[] values);
+
         // https://github.com/torvalds/linux/blob/master/include/uapi/asm-generic/fcntl.h
         // Constants come from the linux kernel at the above link
         internal const int  OPEN_READ_WRITE = 2;

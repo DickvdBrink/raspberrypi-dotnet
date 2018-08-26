@@ -33,6 +33,16 @@ namespace lib_i2c
             return NativeMethods.Write(this.fd, buffer, buffer.Length);
         }
 
+        public int WriteI2cBlockData(byte cmd, byte[] values)
+        {
+            return NativeMethods.I2CSmbusWriteI2CBlockData(this.fd, cmd, (byte)values.Length, values);
+        }
+
+        public int ReadI2cBlockData(byte cmd, byte[] values)
+        {
+            return NativeMethods.I2CSmbusReadI2CBlockData(this.fd, cmd, (byte)values.Length, values);
+        }
+
         public void Dispose()
         {
             Dispose(true);
