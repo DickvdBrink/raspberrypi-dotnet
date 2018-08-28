@@ -6,7 +6,7 @@ using lib_i2c;
 
 namespace i2c_test
 {
-    public class BMP280
+    public class BME280
     {
         public const int DEFAULTADDRESS = 0x77;
         public const int CHIPID = 0x60;
@@ -14,7 +14,7 @@ namespace i2c_test
         private I2CBus bus;
         private int address;
 
-        public BMP280(I2CBus bus, int address = DEFAULTADDRESS)
+        public BME280(I2CBus bus, int address = DEFAULTADDRESS)
         {
             this.bus = bus;
             this.address = address;
