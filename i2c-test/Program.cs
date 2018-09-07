@@ -26,17 +26,16 @@ namespace i2c_test
             //sensor.SetBaseline(0, 0); values are only available after 12 hours or something so no clue
             // what a valid baseline is
 
-            while (true)
-            {
-                var result = sensor.MeasureAirQuality();
-                Console.WriteLine($"{DateTime.Now}  {result.CO2_PartsPerMillion}");
-                Thread.Sleep(1000);
-            }
+            // while (true)
+            // {
+            //     var result = sensor.MeasureAirQuality();
+            //     Console.WriteLine($"{DateTime.Now}  {result.CO2_PartsPerMillion}");
+            //     Thread.Sleep(1000);
+            // }
 
             BME280 sensor2 = new BME280(bus, 0x76);
             while (true)
             {
-                // TODO: ReadTemperature is not implemented yet
                 var temperature = sensor2.ReadTemperature();
                 Console.WriteLine($"{DateTime.Now} Temperature: {temperature}");
                 Thread.Sleep(1000);
